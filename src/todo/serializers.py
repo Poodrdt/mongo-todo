@@ -13,4 +13,4 @@ class TodoListSerializer(serializers.ModelSerializer):
 class TodoListEntrySerializer(serializers.ModelSerializer):
     class Meta:
         model = TodoListEntry
-        fields = ('id', 'text', 'due_date', 'finised')
+        fields = ('id', 'parent_list', 'text', 'due_date', 'finised')
