@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+
+  db:
+    image: mongo
+    ports:
+      - "27017:27017"
+
+  web:
+    build: .
+    command: bash -c "sleep 3; ls -l;"
+    # command: bash -c "sleep 3; python src/manage.py migrate --noinput && python src/manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+
+
+  #redis
+  # redis:
+  #   image: redis
+  #   environment:
+  #     - ALLOW_EMPTY_PASSWORD=yes
+  #   ports:
+  #     - "6379:6379"
