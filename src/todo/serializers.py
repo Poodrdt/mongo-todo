@@ -3,7 +3,7 @@ from rest_framework import serializers
 
 
 class TodoListSerializer(serializers.ModelSerializer):
-    list_entrys = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
+    list_entrys = serializers.StringRelatedField(many=True, read_only=True)
 
     class Meta:
         model = TodoList
