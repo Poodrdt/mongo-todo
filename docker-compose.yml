@@ -9,10 +9,9 @@ services:
 
   web:
     build: .
-    command: bash -c "sleep 3; ls -l;"
-    # command: bash -c "sleep 3; python src/manage.py migrate --noinput && python src/manage.py runserver 0.0.0.0:8000"
+    command: bash -c "sleep 3; python src/manage.py makemigrations todo; sleep 3;python src/manage.py migrate --noinput && python src/manage.py runserver 0.0.0.0:8000"
     volumes:
-      - .:/code
+      - .\:/code
     ports:
       - "8000:8000"
     depends_on:

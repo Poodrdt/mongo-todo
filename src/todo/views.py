@@ -1,4 +1,27 @@
 from django.http import HttpResponse
+from rest_framework.reverse import reverse
 
 def index(request):
-    return HttpResponse("Hello, world!")
+    api_url = 'api/v1/todo-list'
+    return HttpResponse(f"<h3>Go to {api_url}, you silly! :)</h3>")
+
+from .models import TodoList, TodoListEntry
+from rest_framework import viewsets
+from .serializers import TodoListSerializer, TodoListEntrySerializer
+
+
+class TodoListViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows Todo Lists to be viewed or edited.
+    """
+    queryset = TodoList.objects.all()
+    serializer_class = TodoListSerializer
+
+
+class TodoListEntryViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows Todo Lists Entrys to be viewed or edited.
+    """
+    queryset = TodoListEntry.objects.all()
+    serializer_class = TodoListEntrySerializer
+
