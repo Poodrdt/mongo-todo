@@ -11,7 +11,7 @@ services:
     build: .
     command: bash -c "sleep 2; python src/manage.py makemigrations todo; sleep 2;python src/manage.py migrate --noinput && python src/manage.py runserver 0.0.0.0:8000"
     volumes:
-      - .\:/code
+      - .:/code
     ports:
       - "8000:8000"
     depends_on:

@@ -2,8 +2,8 @@ from django.http import HttpResponse
 from rest_framework.reverse import reverse
 
 def index(request):
-    api_url = 'api/v1/todo-list'
-    return HttpResponse(f"<h3>Go to {api_url}, you silly! :)</h3>")
+    api_url = 'api/v1/'
+    return HttpResponse(f"<h3>Go to <a href={api_url}> API </a></h3>")
 
 from .models import TodoList, TodoListEntry
 from rest_framework import viewsets
