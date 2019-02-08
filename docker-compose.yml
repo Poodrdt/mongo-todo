@@ -4,6 +4,9 @@ services:
 
   db:
     image: mongo
+    # environment:
+      # - MONGODB_DATABASE=bd
+      # - MONGO_INITDB_DATABASE=db
     ports:
       - "27017:27017"
 
